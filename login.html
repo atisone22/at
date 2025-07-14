@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <title>เข้าสู่ระบบ</title>
+  <style>
+    body {
+      font-family: Tahoma, sans-serif;
+      background: #f2f2f2;
+      display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;
+    }
+    .box {
+      background: #fff; padding: 30px 40px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px; text-align: center;
+    }
+    input, button {
+      width: 100%; padding: 10px; margin: 12px 0; border-radius: 6px; border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #007BFF; color: white; border: none; cursor: pointer; font-size: 16px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    a {
+      color: #007BFF; text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .error {
+      color: red;
+      font-size: 0.9rem;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>เข้าสู่ระบบ</h2>
+    <form id="loginForm">
+      <input type="text" id="username" name="username" placeholder="ชื่อผู้ใช้" required />
+      <input type="password" id="password" name="password" placeholder="รหัสผ่าน" required />
+      <button type="submit">เข้าสู่ระบบ</button>
+    </form>
+    <p>ยังไม่มีบัญชี? <a href="register.html">สมัครสมาชิก</a></p>
+    <div id="errorMsg" class="error"></div>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById('loginForm');
+    const errorMsg = document.getElementById('errorMsg');
+
+    loginForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+
+      const userDataJSON = localStorage.getItem('user_' + username);
+      if (!userDataJSON) {
+        errorMsg.textContent = 'ไม่พบชื่อผู้ใช้นี้ กรุณาสมัครสมาชิกก่อน';
+        return;
+      }
+
+      const userData = JSON.parse(userDataJSON);
+
+      if (userData.password === password) {
+        // บันทึกสถานะผู้ใช้เข้าสู่ระบบ (session)
+        sessionStorage.setItem('loggedInUser', username);
+        window.location.href = 'game.html';
+      } else {
+        errorMsg.textContent = 'รหัสผ่านไม่ถูกต้อง';
+      }
+    });
+  </script>
+</body>
+</html>
