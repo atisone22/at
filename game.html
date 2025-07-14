@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <title>หน้าเกม - มะดา</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+    body {
+      margin: 0;
+      font-family: 'Kanit', sans-serif;
+      background-color: #fafafa;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 20px;
+    }
+    header {
+      width: 100%;
+      max-width: 700px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 2rem;
+      color: #2c3e50;
+    }
+    nav {
+      margin-top: 12px;
+    }
+    nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: #3498db;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+    nav a:hover {
+      color: #2980b9;
+    }
+    main {
+      width: 100%;
+      max-width: 700px;
+    }
+    .game-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .game-list li {
+      background: white;
+      margin-bottom: 12px;
+      padding: 16px 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    .game-list li:hover {
+      background-color: #ecf0f1;
+    }
+    .game-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #34495e;
+    }
+    .play-btn {
+      background-color: #27ae60;
+      border: none;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    .play-btn:hover {
+      background-color: #1e8449;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>รวมเกมของคุณ</h1>
+    <nav>
+      <a href="home.html">หน้าหลัก</a>
+      <a href="profile.html">ข้อมูลผู้ใช้</a>
+      <a href="game.html">หน้าเกม</a>
+    </nav>
+  </header>
+
+  <main>
+    <ul class="game-list">
+      <li>
+        <span class="game-title">เกมยิงปืน Shooter</span>
+        <button class="play-btn" onclick="alert('เริ่มเล่นเกม Shooter!')">เล่น</button>
+      </li>
+      <li>
+        <span class="game-title">เกมปริศนา Puzzle</span>
+        <button class="play-btn" onclick="alert('เริ่มเล่นเกม Puzzle!')">เล่น</button>
+      </li>
+      <li>
+        <span class="game-title">เกมแข่งรถ Racing</span>
+        <button class="play-btn" onclick="alert('เริ่มเล่นเกม Racing!')">เล่น</button>
+      </li>
+      <li>
+        <span class="game-title">เกมวางแผน Strategy</span>
+        <button class="play-btn" onclick="alert('เริ่มเล่นเกม Strategy!')">เล่น</button>
+      </li>
+    </ul>
+  </main>
+</body>
+</html>
